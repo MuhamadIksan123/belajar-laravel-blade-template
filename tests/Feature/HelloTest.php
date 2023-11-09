@@ -13,4 +13,22 @@ class HelloTest extends TestCase
         $this->get('/hello')
         ->assertSeeText("Eko");
     }
+
+    public function testHelloWorld()
+    {
+        $this->get('/world')
+        ->assertSeeText("Eko");
+    }
+
+    public function testHelloView()
+    {
+        $this->view('hello', ["name" => "Eko"])
+        ->assertSeeText("Eko");
+    }
+
+    public function testHelloWorldView()
+    {
+        $this->view('hello.world', ["name" => "Eko"])
+        ->assertSeeText("Eko");
+    }
 }
